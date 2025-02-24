@@ -1,0 +1,29 @@
+﻿@model MyMvcProject.Models.FormModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fill Out Form: @ViewBag.FormName</h2>
+
+<!-- Render converted DOCX-to-HTML content -->
+<form asp-action="Submit" method="post">
+    <div>
+        @Html.Raw(ViewBag.HtmlContent) <!-- Interactive form now appears here -->
+    </div>
+
+    <!-- Signature Pad Section -->
+    <div>
+        <label>Signature:</label><br />
+        <canvas id="signature-pad" width="400" height="200" style="border: 1px solid #ccc;"></canvas><br />
+        <button type="button" id="clear-signature">Clear</button>
+    </div>
+
+    <!-- Hidden field to store signature data -->
+    <input type="hidden" id="SignatureData" name="SignatureData" />
+
+    <button type="submit" onclick="saveSignature()">Submit Form</button>
+</form>
+@section Scripts {
+@*     <script src="~/js/signature_pad.min.js"></script>
+ *@    <script src="~/js/custom.js"></script>
+}

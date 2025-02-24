@@ -1,0 +1,10 @@
+/* Basic styling for the project */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+label {
+    font-weight: bold;
+}

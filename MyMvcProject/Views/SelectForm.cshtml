@@ -1,0 +1,16 @@
+﻿@model List<string>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select a Form</h2>
+<form method="get" asp-action="RenderForm">
+    <label for="formName">Choose a form:</label>
+    <select id="formName" name="formName">
+        @foreach (var form in Model)
+        {
+            <option value="@form">@form</option>
+        }
+    </select>
+    <button type="submit">Load Form</button>
+</form>
